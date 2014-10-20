@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE logback>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <logger name="jdbc" level="ERROR" />
+    <logger name="jdbc.sqlonly" level="INFO" />
+    <!-- <logger name="jdbc.connection" level="INFO" /> -->
+
+    <logger name="org.yukung.sandbox" level="DEBUG" />
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
