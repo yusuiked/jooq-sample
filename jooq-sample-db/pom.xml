@@ -127,6 +127,9 @@
                             <excludes></excludes>
                             <inputSchema>PUBLIC</inputSchema>
                         </database>
+                        <generate>
+                            <pojos>true</pojos>
+                        </generate>
                         <target>
                             <packageName>org.yukung.sandbox.db.jooq.gen</packageName>
                             <directory>${project.basedir}/target/generated-sources/java</directory>
