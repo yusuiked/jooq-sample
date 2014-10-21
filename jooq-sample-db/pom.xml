@@ -74,7 +74,7 @@
                 <executions>
                     <execution>
                         <id>create-tables</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
@@ -97,7 +97,7 @@
                 <executions>
                     <execution>
                         <id>generate-h2</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
