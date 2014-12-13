@@ -69,7 +69,10 @@ public class ReadTest {
                 .where(BOOK.AUTHOR_ID.eq(2))
                 .and(BOOK.PUBLISH_DATE.le(dt))
                 .fetch().into(Book.class);
-        log.debug(books.toString());
+        books.forEach(book -> {
+            log.debug("{}|{}|{}|{}", book.getIsbn(), book.getTitle(), book.getAuthorId(), book.getPublishDate());
+        });
+            ;
     }
 
     @Test
@@ -87,7 +90,9 @@ public class ReadTest {
             query.addConditions(BOOK.PUBLISH_DATE.le(dt));
         }
         List<Book> books = query.fetch().into(Book.class);
-        log.debug(books.toString());
+        books.forEach(book -> {
+            log.debug("{}|{}|{}|{}", book.getIsbn(), book.getTitle(), book.getAuthorId(), book.getPublishDate());
+        });
     }
 
     @Test
@@ -97,11 +102,11 @@ public class ReadTest {
                 .select(BOOK.ISBN, BOOK.TITLE)
                 .from(BOOK)
                 .fetchInto(Book.class);
-          books.forEach(s -> {
-              assertThat(s.getIsbn(), is(notNullValue()));
-              assertThat(s.getTitle(), is(notNullValue()));
-              assertThat(s.getAuthorId(), is(nullValue()));
-              assertThat(s.getPublishDate(), is(nullValue()));
+          books.forEach(book -> {
+              assertThat(book.getIsbn(), is(notNullValue()));
+              assertThat(book.getTitle(), is(notNullValue()));
+              assertThat(book.getAuthorId(), is(nullValue()));
+              assertThat(book.getPublishDate(), is(nullValue()));
           });
     }
 }
